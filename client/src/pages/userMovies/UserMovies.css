@@ -37,3 +37,22 @@
   height: auto;
   border-radius: 8px;
 }
+
+.movie-buttons {
+  margin-top: 10px;
+}
+
+.movie-buttons button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.movie-buttons button:hover {
+  background-color: #0056b3;
+}

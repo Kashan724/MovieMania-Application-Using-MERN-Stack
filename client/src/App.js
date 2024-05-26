@@ -9,7 +9,9 @@ import Movies from './pages/movies/Movies';
 import MovieForm from './pages/movieform/MovieForm';
 import MovieCard from './pages/moviecard/MovieCard';
 import UserMovies from './pages/userMovies/UserMovies';
+import UpdateMovie from './pages/UpdateMovie/UpdateMovie';
 import Layout from './components/layout/Layout';
+
 
 function App() {
   
@@ -24,7 +26,7 @@ function App() {
         <Route path="/movies-form" element={<MovieForm />} />
         <Route path="/movies/:id" element={<MovieCard />} /> {/* Add this route */}
         <Route path="my-movies" element={<UserMovies />} /> {/* Add this route */}
-
+        <Route path="/update-movie/:id" element={<UpdateMovie />} /> {/* Add this route */}   
       </Routes>
       </Layout>
   </Router>

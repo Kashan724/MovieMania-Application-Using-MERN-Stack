@@ -55,11 +55,22 @@ export const getAllMovies = async (req, res) => {
 
 export const updateMovie = async (req, res) => {
     try {
-        // Extract movie ID and updated data from request body
         const { id } = req.params;
         const updateData = req.body;
 
-        // Find and update the movie in the database
+        // Find the movie in the database
+        const movie = await Movie.findById(id);
+
+        if (!movie) {
+            return res.status(404).json({ message: "Movie not found" });
+        }
+
+        // Check if the authenticated user is the owner of the movie
+        if (movie.userId.toString() !== req.user.id) {
+            return res.status(403).json({ message: "You are not authorized to update this movie" });
+        }
+
+        // Update the movie in the database
         const updatedMovie = await Movie.findByIdAndUpdate(id, updateData, { new: true });
 
         // Send response with the updated movie
@@ -72,10 +83,21 @@ export const updateMovie = async (req, res) => {
 
 export const deleteMovie = async (req, res) => {
     try {
-        // Extract movie ID from request parameters
         const { id } = req.params;
 
-        // Find and delete the movie from the database
+        // Find the movie in the database
+        const movie = await Movie.findById(id);
+
+        if (!movie) {
+            return res.status(404).json({ message: "Movie not found" });
+        }
+
+        // Check if the authenticated user is the owner of the movie
+        if (movie.userId.toString() !== req.user.id) {
+            return res.status(403).json({ message: "You are not authorized to delete this movie" });
+        }
+
+        // Delete the movie from the database
         await Movie.findByIdAndDelete(id);
 
         // Send response
@@ -85,6 +107,7 @@ export const deleteMovie = async (req, res) => {
         res.status(500).json({ message: "Internal server error" });
     }
 };
+
 // Function to get a movie by ID
 export const getMovieById = async (req, res) => {
     try {
