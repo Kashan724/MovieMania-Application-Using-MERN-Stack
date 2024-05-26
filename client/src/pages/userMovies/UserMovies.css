@@ -1,0 +1,34 @@
+.user-movies-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .user-movies-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user-movie-item {
+    margin: 20px 0;
+    color: #ff9900; /* Vibrant color for movie titles */
+    transition: transform 0.3s ease; /* Adding transition for smooth effect */
+  }
+  
+  .user-movie-item:hover {
+    transform: scale(1.05); /* Scale up the item on hover */
+  }
+  
+  .user-movie-item img {
+    width: 300px; /* Adjust image width as needed */
+    height: auto;
+    border-radius: 8px;
+  }
+  
