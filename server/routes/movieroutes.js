@@ -11,6 +11,7 @@ router.get('/', getAllMovies);
 router.put('/:id',authMiddleware, updateMovie); // Update movie by ID
 router.delete('/:id',authMiddleware, deleteMovie); // Delete movie by ID
 router.get("/:userId/movies", getUserMovies); // user movies
+router.get("/:id",getMovieById);
 // Route to get movies associated with a specific user
 //router.get('/user/:id/movies',getUserMovies);
 

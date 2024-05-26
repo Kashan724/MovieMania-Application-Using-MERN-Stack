@@ -7,7 +7,6 @@ const MovieForm = () => {
   const [description, setDescription] = useState('');
   const [releaseYear, setReleaseYear] = useState('');
   const [genre, setGenre] = useState('');
-  const [directors, setDirectors] = useState('');
   const [rating, setRating] = useState('');
   const [duration, setDuration] = useState('');
   const [language, setLanguage] = useState('');
@@ -43,7 +42,6 @@ const MovieForm = () => {
     formData.append('description', description);
     formData.append('releaseYear', releaseYear);
     formData.append('genre', genre);
-    formData.append('directors', directors);
     formData.append('rating', rating);
     formData.append('duration', duration);
     formData.append('language', language);
@@ -104,10 +102,6 @@ const MovieForm = () => {
           </div>
           <div className="form-column">
             <div className="form-group">
-              <label>Directors:</label>
-              <input type="text" value={directors} onChange={(e) => setDirectors(e.target.value)} />
-            </div>
-            <div className="form-group">
               <label>Rating:</label>
               <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} />
             </div>
@@ -138,3 +132,4 @@ const MovieForm = () => {
 };
 
 export default MovieForm;
+

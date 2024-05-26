@@ -37,8 +37,8 @@ const UserMovies = () => {
   }, [authorizationToken]);
 
   return (
-    <div className="user-movies-container" style={{ backgroundImage: `url('https://w0.peakpx.com/wallpaper/229/876/HD-wallpaper-vibe-night-vibe.jpg')` }}>
-      <h2>User's Movies</h2>
+    <div className="user-movies-container">
+      <h2 className="user-movies-heading">My Movies</h2>
       <div className="user-movies-list">
         {userMovies.map(movie => (
           <div key={movie._id} className="user-movie-item">
